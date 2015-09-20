@@ -1,3 +1,5 @@
+install:
+  - npm install
 language      : objective-c
 xcode_project : ./ios/GithubNoteTaker.xcodeproj
 xcode_scheme  : GithubNoteTaker
