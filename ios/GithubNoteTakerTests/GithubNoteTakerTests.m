@@ -13,8 +13,8 @@
 #import "RCTLog.h"
 #import "RCTRootView.h"
 
-#define TIMEOUT_SECONDS 240
-#define TEXT_TO_LOOK_FOR @"Welcome to React Native!"
+#define TIMEOUT_SECONDS 15
+#define TEXT_TO_LOOK_FOR @"Welcome to Github NoteTaker!"
 
 @interface GithubNoteTakerTests : XCTestCase
 
