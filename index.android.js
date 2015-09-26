@@ -1,50 +1,104 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
-'use strict';
-
-let React = require('react-native');
-let {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-} = React;
+let
+  React = require('react-native'),
+  {
+    AppRegistry,
+    StyleSheet,
+    Navigator,
+    TouchableOpacity,
+    Text,
+  } = React,
+  Main = require('./app/components/Main');
 
 let styles = StyleSheet.create({
-  container: {
+  container:{
     flex            : 1,
-    justifyContent  : 'center',
-    alignItems      : 'center',
-    backgroundColor : '#F5FCFF',
+    backgroundColor : '#111111',
   },
-  welcome: {
-    fontSize  : 20,
-    textAlign : 'center',
-    margin    : 10,
+  navBar: {
+    backgroundColor: 'white',
   },
-  instructions: {
-    textAlign    : 'center',
-    color        : '#333333',
-    marginBottom : 5,
+  navBarText: {
+    fontSize: 16,
+    marginVertical: 10,
+  },
+  navBarTitleText: {
+    color: '#000',
+    fontWeight: '500',
+    marginVertical: 9,
+  },
+  navBarLeftButton: {
+    paddingLeft: 10,
+  },
+  navBarButtonText: {
+    color: '#00f',
   },
 });
+
+// TODO Fix this to add a navigation bar to the top of the screen, then use the same setup for iOS as well
+
+// let NavigationBarRouteMapper = {
+
+//   LeftButton: function(route, navigator, index, navState) {
+//     if (index === 0) {
+//       return null;
+//     }
+
+//     let previousRoute = navState.routeStack[index - 1];
+//     return (
+//       <TouchableOpacity
+//         onPress={() => navigator.pop()}
+//         style={styles.navBarLeftButton}>
+//         <Text style={[styles.navBarText, styles.navBarButtonText]}>
+//           {previousRoute.title}
+//         </Text>
+//       </TouchableOpacity>
+//     );
+//   },
+
+//   Title: function(route, navigator, index) {
+//     return (
+//       <Text style={[styles.navBarText, styles.navBarTitleText]}>
+//         {route.title} [{index}]
+//       </Text>
+//     );
+//   },
+
+// };
 
 class GithubNoteTaker extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Github NoteTaker!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Navigator
+        initialRoute  = {{
+          name  : 'Github NoteTaker',
+          index : 0,
+        }}
+        renderScene   = {
+          (route, navigator) =>
+            <Main
+              name      = {route.name}
+              onForward = {() => {
+                let nextIndex = route.index + 1;
+                navigator.push({
+                  name : 'Scene ' + nextIndex,
+                  index : nextIndex,
+                });
+              }}
+              onBack    = {() => {
+                if (route.index > 0) {
+                  navigator.pop();
+                }
+              }}
+            />
+        }
+        // navigationBar = {
+        //   <Navigator.NavigationBar
+        //     routeMapper = {NavigationBarRouteMapper}
+        //     style       = {styles.navBar}
+        //   />
+        // }
+        style         = {styles.container}
+      />
     );
   }
 }
