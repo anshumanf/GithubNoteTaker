@@ -14,7 +14,7 @@
 #import "RCTRootView.h"
 
 #define TIMEOUT_SECONDS 15
-#define TEXT_TO_LOOK_FOR @"Testing the Router"
+#define TEXT_TO_LOOK_FOR @"Search for a Github User"
 
 @interface GithubNoteTakerTests : XCTestCase
 
