@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/anshumanf/GithubNoteTaker.png?label=ready&title=Ready)](https://waffle.io/anshumanf/GithubNoteTaker)
 # GithubNoteTaker
 
 ## Quick start
