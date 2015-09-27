@@ -1,5 +1,6 @@
 let
-  React = require('react-native');
+  React = require('react-native'),
+  Profile = require('./Profile');
 
 let {
   View,
@@ -44,15 +45,19 @@ class Dashboard extends React.Component {
   }
 
   goToProfile() {
-    console.log('Going to Profile page');
+    this.props.navigator.push({
+      component: Profile,
+      title: 'Profile Page',
+      passProps: {userInfo: this.props.userInfo},
+    });
   }
 
   goToRepos() {
-    console.log('Going to Profile page');
+    console.log('Going to Repos page');
   }
 
   goToNotes() {
-    console.log('Going to Profile page');
+    console.log('Going to Notes page');
   }
 
   render()  {
@@ -64,22 +69,22 @@ class Dashboard extends React.Component {
           style  = {styles.image}
         />
         <TouchableHighlight
-          style = {this.makeBackground(0)}
-          onPress = {this.goToProfile.bind(this)}
+          style         = {this.makeBackground(0)}
+          onPress       = {this.goToProfile.bind(this)}
           underlayColor = "#88d4f5"
         >
           <Text style={styles.buttonText}>View Profile</Text>
         </TouchableHighlight>
         <TouchableHighlight
-          style = {this.makeBackground(1)}
-          onPress = {this.goToRepos.bind(this)}
+          style         = {this.makeBackground(1)}
+          onPress       = {this.goToRepos.bind(this)}
           underlayColor = "#88d4f5"
         >
           <Text style={styles.buttonText}>View Repos</Text>
         </TouchableHighlight>
         <TouchableHighlight
-          style = {this.makeBackground(2)}
-          onPress = {this.goToNotes.bind(this)}
+          style         = {this.makeBackground(2)}
+          onPress       = {this.goToNotes.bind(this)}
           underlayColor = "#88d4f5"
         >
           <Text style={styles.buttonText}>View Notes</Text>

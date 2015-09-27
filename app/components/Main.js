@@ -61,7 +61,7 @@ let styles = StyleSheet.create({
     justifyContent : 'center',
   },
   loadingIndicator : {
-    alignSelf: 'center',
+    alignSelf : 'center',
   },
   errorText : {
     textAlign : 'center',
