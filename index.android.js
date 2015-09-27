@@ -4,8 +4,6 @@ let
     AppRegistry,
     StyleSheet,
     Navigator,
-    TouchableOpacity,
-    Text,
   } = React,
   Main = require('./app/components/Main');
 
@@ -77,18 +75,7 @@ class GithubNoteTaker extends React.Component {
           (route, navigator) =>
             <Main
               name      = {route.name}
-              onForward = {() => {
-                let nextIndex = route.index + 1;
-                navigator.push({
-                  name : 'Scene ' + nextIndex,
-                  index : nextIndex,
-                });
-              }}
-              onBack    = {() => {
-                if (route.index > 0) {
-                  navigator.pop();
-                }
-              }}
+              navigator = {navigator}
             />
         }
         // navigationBar = {
