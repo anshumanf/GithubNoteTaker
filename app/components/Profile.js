@@ -1,6 +1,7 @@
 let
-  React = require('react-native'),
-  Badge = require('./Badge');
+  React     = require('react-native'),
+  Badge     = require('./Badge'),
+  Separator = require('./helpers/Separator');
 
 let {
   Text,
@@ -62,6 +63,7 @@ class Profile extends React.Component {
                   {userInfo[item]}
                 </Text>
               </View>
+              <Separator />
             </View>
           );
         }
