@@ -74,11 +74,11 @@
 
     // To be applied subjectively based on whether an object is actually being used as an associative array
     // Eventually all such cases should either be reworked into objects or replaced with ES6 Maps
-    // See https                  ://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
-    // "quote-props"              : [2, "as-needed"],
+    // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+    "quote-props"              : [2, "as-needed"],
 
     // TODO Turn on when possible
-    // "react/prop-types"           : 2,
+    "react/prop-types"           : 2,
 
     "no-var"                        : 2,
     "no-unused-vars"                : [2, {"vars": "all", "args": "after-used"}],
