@@ -1,7 +1,8 @@
 let
   React = require('react-native'),
   Badge = require('./Badge'),
-  Separator = require('./helpers/Separator');
+  Separator = require('./helpers/Separator'),
+  Web_View = require('./helpers/Web_View');
 
 let {
   ScrollView,
@@ -38,7 +39,11 @@ let styles = StyleSheet.create({
 
 class Repositories extends React.Component  {
   openPage(url)  {
-    console.log('The URL is', url);
+    this.props.navigator.push({
+      component : Web_View,
+      title     : 'Web View',
+      passProps : {url},
+    });
   }
 
   render()  {
@@ -53,7 +58,7 @@ class Repositories extends React.Component  {
           <View key={index}>
             <View style={styles.rowContainer}>
               <TouchableHighlight
-                onPress       = {this.openPage.bind(this, repos)}
+                onPress       = {this.openPage.bind(this, repos[index].html_url)}
                 underlayColor = "transparent"
               >
                 <Text style={styles.name}>{repos[index].name}</Text>
